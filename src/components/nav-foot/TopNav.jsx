@@ -31,58 +31,65 @@ const TopNav = () => {
             style={{ width: "70%", height: "20%" }}
           /> */}
           </Navbar.Brand>
-          <Nav className="mr-auto">
+          <Nav
+            className="mr-auto d-flex justify-content-between"
+            style={{ width: "40%" }}
+          >
             <Nav.Link
               href="#home"
               className="text-white position-relative nav-item"
             >
-              <div className="d-flex flex-column">
+              <div className="d-flex flex-column nav-list-container">
                 <div className="d-flex ">
                   <FaCube className="nav-list" />
                   <IoMdArrowDropdown />
                 </div>
                 <small>Sets</small>
               </div>
-
-              <div className="d-flex flex-column drop">
-                <small>hello</small>
-                <small>hello</small>
-                <small>hello</small>
+              <div className="drop">
+                <div className="d-flex flex-column text-left ml-2 mt-1">
+                  <small>hello</small>
+                  <small>hello</small>
+                  <small>hello</small>
+                </div>
               </div>
             </Nav.Link>
-
             <Nav.Link
               href="#features"
               className="text-white position-relative nav-item"
             >
-              <div className="d-flex flex-column">
+              <div className="d-flex flex-column nav-list-container">
                 <div className="d-flex">
                   <SiBuildkite className="nav-list" />
                   <IoMdArrowDropdown />
                 </div>
                 <small>Parts</small>
               </div>
-              <div className="d-flex flex-column drop">
-                <small>he</small>
-                <small>he</small>
-                <small>he</small>
+              <div className="drop">
+                <div className="d-flex text-left ml-2 flex-column mt-1">
+                  <small>he</small>
+                  <small>he</small>
+                  <small>he</small>
+                </div>
               </div>
             </Nav.Link>
             <Nav.Link
               href="#pricing"
               className="text-white position-relative nav-item"
             >
-              <div className="d-flex flex-column">
+              <div className="d-flex flex-column nav-list-container">
                 <div className="d-flex">
                   <BsPersonFill className="nav-list" />
                   <IoMdArrowDropdown />
                 </div>
                 <small>Account</small>
               </div>
-              <div className="d-flex flex-column drop">
-                <small>helu</small>
-                <small>helu</small>
-                <small>helu</small>
+              <div className="drop">
+                <div className="d-flex text-left ml-2 flex-column mt-1">
+                  <small>helu</small>
+                  <small>helu</small>
+                  <small>helu</small>
+                </div>
               </div>
             </Nav.Link>
           </Nav>

@@ -1,18 +1,17 @@
 .nav-list {
   font-size: large;
 }
-.nav-item .drop {
+.drop {
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #343a40;
   list-style: none;
-  width: 100%;
+  width: 130px;
   display: none;
-  opacity: 0;
-  transition: all 0.9s ease;
 }
+
 .nav-item:hover .drop {
   transform: translateY(90);
-  opacity: 1;
+  display: block;
 }
