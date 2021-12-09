@@ -43,11 +43,7 @@ const TopNav = () => {
                 </div>
                 <small>Sets</small>
               </div>
-              {/* <ul className="text-left">
-                <li>hello</li>
-                <li>hello</li>
-                <li>hello</li>
-              </ul> */}
+
               <div className="d-flex flex-column drop">
                 <small>hello</small>
                 <small>hello</small>
@@ -55,7 +51,10 @@ const TopNav = () => {
               </div>
             </Nav.Link>
 
-            <Nav.Link href="#features" className="text-white">
+            <Nav.Link
+              href="#features"
+              className="text-white position-relative nav-item"
+            >
               <div className="d-flex flex-column">
                 <div className="d-flex">
                   <SiBuildkite className="nav-list" />
@@ -63,14 +62,27 @@ const TopNav = () => {
                 </div>
                 <small>Parts</small>
               </div>
+              <div className="d-flex flex-column drop">
+                <small>he</small>
+                <small>he</small>
+                <small>he</small>
+              </div>
             </Nav.Link>
-            <Nav.Link href="#pricing" className="text-white">
+            <Nav.Link
+              href="#pricing"
+              className="text-white position-relative nav-item"
+            >
               <div className="d-flex flex-column">
                 <div className="d-flex">
                   <BsPersonFill className="nav-list" />
                   <IoMdArrowDropdown />
                 </div>
                 <small>Account</small>
+              </div>
+              <div className="d-flex flex-column drop">
+                <small>helu</small>
+                <small>helu</small>
+                <small>helu</small>
               </div>
             </Nav.Link>
           </Nav>
