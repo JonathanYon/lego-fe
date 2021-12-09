@@ -6,7 +6,7 @@ import {
   Form,
   Button,
 } from "react-bootstrap";
-import { FaCube, FaSearch } from "react-icons/fa";
+import { FaCube, FaSearch, FaBars } from "react-icons/fa";
 import { BsPersonFill } from "react-icons/bs";
 import { SiBuildkite } from "react-icons/si";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -25,7 +25,7 @@ const TopNav = () => {
               className="ml-n5"
             />
           </div>
-          <div className="ml-4">
+          <div className="ml-1 d-flex">
             <img
               src={process.env.PUBLIC_URL + "title-sm.png"}
               alt=""
@@ -102,9 +102,12 @@ const TopNav = () => {
             <FaSearch />
           </Button>
         </Form>
-        <div className="d-lg-none d-flex flex-column text-white">
-          <FaSearch className="search" />
-          <small className="mr-3">Search</small>
+        <div className="d-lg-none d-flex">
+          <div className="d-lg-none d-flex flex-column text-white">
+            <FaSearch className="search" />
+            <small className="mr-3">Search</small>
+          </div>
+          <FaBars className="mt-2 mr-1 bar d-lg-none d-sm-block text-white" />
         </div>
       </Container>
     </Navbar>
