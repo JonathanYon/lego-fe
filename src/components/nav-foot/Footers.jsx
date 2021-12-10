@@ -6,7 +6,6 @@ import {
   Form,
   FormControl,
 } from "react-bootstrap";
-import { CgSweden } from "react-icons/cg";
 
 const Footers = () => {
   return (

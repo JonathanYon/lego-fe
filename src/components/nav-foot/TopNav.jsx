@@ -52,9 +52,8 @@ const TopNav = () => {
               </div>
               <div className="drop">
                 <div className="d-flex flex-column text-left ml-2 mt-1">
-                  <small>hello</small>
-                  <small>hello</small>
-                  <small>hello</small>
+                  <small className="mb-2">Find Sets</small>
+                  <small className="mb-2">Find Minifigs</small>
                 </div>
               </div>
             </Nav.Link>
@@ -71,9 +70,8 @@ const TopNav = () => {
               </div>
               <div className="drop">
                 <div className="d-flex text-left ml-2 flex-column mt-1">
-                  <small>he</small>
-                  <small>he</small>
-                  <small>he</small>
+                  <small className="mb-2">Find Parts</small>
+                  <small className="mb-2">Part Colors</small>
                 </div>
               </div>
             </Nav.Link>
@@ -90,9 +88,12 @@ const TopNav = () => {
               </div>
               <div className="drop">
                 <div className="d-flex text-left ml-2 flex-column mt-1">
-                  <small>helu</small>
-                  <small>helu</small>
-                  <small>helu</small>
+                  <Button variant="success" className="mb-1 mr-2">
+                    LOGIN
+                  </Button>
+                  <Button variant="danger" className="mb-1 mr-2">
+                    REGISTER
+                  </Button>
                 </div>
               </div>
             </Nav.Link>
