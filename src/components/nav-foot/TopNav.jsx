@@ -10,15 +10,19 @@ import { FaCube, FaSearch, FaBars } from "react-icons/fa";
 import { BsPersonFill } from "react-icons/bs";
 import { SiBuildkite } from "react-icons/si";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { withRouter } from "react-router-dom";
 import "./nav-foot.css";
 
-const TopNav = () => {
+const TopNav = (props) => {
   return (
     <>
       <Navbar bg="light">
         <Container className="bg-dark">
           <Navbar.Brand href="#home">
-            <div className="d-lg-block d-none">
+            <div
+              className="d-lg-block d-none"
+              onClick={() => props.history.push("/")}
+            >
               <img
                 src={process.env.PUBLIC_URL + "title.webp"}
                 alt=""
@@ -91,7 +95,11 @@ const TopNav = () => {
                   <Button variant="success" className="mb-1 mr-2">
                     LOGIN
                   </Button>
-                  <Button variant="danger" className="mb-1 mr-2">
+                  <Button
+                    variant="danger"
+                    className="mb-1 mr-2"
+                    onClick={() => props.history.push("/info")}
+                  >
                     REGISTER
                   </Button>
                 </div>
@@ -122,4 +130,4 @@ const TopNav = () => {
     </>
   );
 };
-export default TopNav;
+export default withRouter(TopNav);
