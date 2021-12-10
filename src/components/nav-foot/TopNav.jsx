@@ -92,7 +92,11 @@ const TopNav = (props) => {
               </div>
               <div className="drop">
                 <div className="d-flex text-left ml-2 flex-column mt-1">
-                  <Button variant="success" className="mb-1 mr-2">
+                  <Button
+                    variant="success"
+                    className="mb-1 mr-2"
+                    onClick={() => props.history.push("/login")}
+                  >
                     LOGIN
                   </Button>
                   <Button

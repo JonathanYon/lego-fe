@@ -5,6 +5,7 @@ import Footers from "./components/nav-foot/Footers";
 import TopNav from "./components/nav-foot/TopNav";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Info from "./components/info/Info";
+import Login from "./components/info/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <TopNav />
         <Route exact path="/" component={StaticView} />
         <Route exact path="/info" component={Info} />
+        <Route exact path="/login" component={Login} />
         <Footers />
       </Router>
     </div>
