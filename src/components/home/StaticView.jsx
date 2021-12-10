@@ -1,9 +1,10 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FaPlus, FaEquals } from "react-icons/fa";
 import { AiFillBuild } from "react-icons/ai";
+import { withRouter } from "react-router-dom";
 import "./home.css";
 
-const StaticView = () => {
+const StaticView = (props) => {
   return (
     <Container className="my-4">
       <Row>
@@ -26,7 +27,7 @@ const StaticView = () => {
       </Row>
       <Row className="mt-5">
         <Col>
-          <Button variant="success">
+          <Button variant="success" onClick={() => props.history.push("/info")}>
             <AiFillBuild /> Mangage your LEGO&reg; Collection
           </Button>
         </Col>
@@ -34,4 +35,4 @@ const StaticView = () => {
     </Container>
   );
 };
-export default StaticView;
+export default withRouter(StaticView);

@@ -9,10 +9,10 @@ import {
 
 const Footers = () => {
   return (
-    <Container fluid className="my-5">
+    <Container fluid className="my-5 bg-light">
       <Container className="">
         <Row className="d-flex flex-column">
-          <Col className="d-flex">
+          <Col className="d-flex  mt-4">
             <div className="col-7">
               <h4>Need help?</h4>
               <div>
