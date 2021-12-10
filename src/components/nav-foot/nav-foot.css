@@ -9,6 +9,7 @@
   list-style: none;
   width: 130px;
   display: none;
+  z-index: 2;
 }
 
 .nav-item:hover .drop {
