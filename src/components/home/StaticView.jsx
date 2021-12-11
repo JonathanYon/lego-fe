@@ -8,7 +8,7 @@ const StaticView = (props) => {
   return (
     <Container className="my-4">
       <Row>
-        <Col className="d-flex">
+        <Col className="d-lg-flex flex-sm-column flex-lg-row">
           <div className="d-flex flex-column">
             <img src={process.env.PUBLIC_URL + "truck.jpg"} alt="" />
             <strong>I have this</strong>

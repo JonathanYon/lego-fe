@@ -6,6 +6,7 @@ import TopNav from "./components/nav-foot/TopNav";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Info from "./components/info/Info";
 import Login from "./components/info/Login";
+import MiniFigs from "./components/home/MiniFigs";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <TopNav />
         <Route exact path="/" component={StaticView} />
+        <Route exact path="/" component={MiniFigs} />
         <Route exact path="/info" component={Info} />
         <Route exact path="/login" component={Login} />
         <Footers />

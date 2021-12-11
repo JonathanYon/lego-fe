@@ -2,7 +2,7 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
 const Login = () => {
   return (
-    <Container>
+    <Container className="my-5">
       <Row>
         <Col sm={4}></Col>
         <Col sm={4} className="bg-light my-5">

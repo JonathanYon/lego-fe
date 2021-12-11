@@ -9,7 +9,7 @@ import {
 
 const Footers = () => {
   return (
-    <Container fluid className="my-5 bg-light">
+    <Container fluid className="bg-light">
       <Container className="">
         <Row className="d-flex flex-column">
           <Col className="d-flex  mt-4">
@@ -52,7 +52,7 @@ const Footers = () => {
             </div>
           </Col>
         </Row>
-        <Row className="d-flex flex-column mt-5">
+        <Row className="d-flex flex-column mt-2">
           <Col className="d-flex">
             <div className="col-12 d-flex justify-content-between">
               <div>

@@ -13,7 +13,7 @@ import "./info.css";
 
 const Info = () => {
   return (
-    <Container>
+    <Container className="my-5">
       <Row className="d-flex">
         <Col sm={8} className="text-left">
           <h5 className="mb-4">Why create a Rebrickable account?</h5>
