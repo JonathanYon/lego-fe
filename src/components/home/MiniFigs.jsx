@@ -17,9 +17,9 @@ const MiniFigs = () => {
     <Container>
       <Row sm={2} md={4}>
         {/* <Col className=""> */}
-        {minifigs.map((mini, i) => (
-          <SingleMini key={i + 1} minifig={mini} />
-        ))}
+        {minifigs
+          .map((mini, i) => <SingleMini key={i + 1} minifig={mini} />)
+          .slice(10, 22)}
         {/* </Col> */}
       </Row>
     </Container>

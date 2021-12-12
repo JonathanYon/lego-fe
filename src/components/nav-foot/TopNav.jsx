@@ -56,7 +56,12 @@ const TopNav = (props) => {
               </div>
               <div className="drop">
                 <div className="d-flex flex-column text-left ml-2 mt-1">
-                  <small className="mb-2">Find Sets</small>
+                  <small
+                    className="mb-2"
+                    onClick={() => props.history.push("/sets")}
+                  >
+                    Find Sets
+                  </small>
                   <small className="mb-2">Find Minifigs</small>
                 </div>
               </div>
