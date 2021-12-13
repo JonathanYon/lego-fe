@@ -1,13 +1,23 @@
-import { Card } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 
-const SingleSet = ({ data }) => {
+const SingleSet = ({ data, history }) => {
   return (
-    <Card style={{ width: "10rem" }}>
-      <Card.Img variant="top" src={data.set_img_url} />
-      <Card.Body>
-        <Card.Text>.</Card.Text>
-      </Card.Body>
-    </Card>
+    <Col
+      className="mb-2"
+      onClick={() => history.push(`/detail/${data.set_num}`)}
+    >
+      <Card style={{ height: "18rem", width: "15rem" }} className="">
+        <Card.Img
+          variant="top"
+          src={data.set_img_url}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+        {/* <Card.Body>
+     <Card.Text>.</Card.Text>
+       </Card.Body> */}
+      </Card>
+    </Col>
   );
 };
-export default SingleSet;
+export default withRouter(SingleSet);
