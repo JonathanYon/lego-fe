@@ -8,6 +8,7 @@ import Info from "./components/info/Info";
 import Login from "./components/info/Login";
 import MiniFigs from "./components/home/MiniFigs";
 import Sets from "./components/home/Sets";
+import SetDetail from "./components/home/SetDetail";
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
         <Route exact path="/info" component={Info} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/sets" component={Sets} />
+        <Route
+          exact
+          path="/detail/:id"
+          render={(routes) => <SetDetail {...routes} />}
+        />
         <Footers />
       </Router>
     </div>

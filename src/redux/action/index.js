@@ -54,6 +54,7 @@ export const getMiniFigs = () => {
 
 // Sets
 
+// export const getSets = () => {
 export const getSets = (search, minYear, maxYear, minPart, maxPart) => {
   return async (dispatch) => {
     try {
