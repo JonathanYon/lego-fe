@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage";
 import { setsReducer } from "../reducers/sets";
 import { miniReducer } from "../reducers/mini";
 import { partsReducer } from "../reducers/parts";
+import { favReducer } from "../reducers/favorite";
 
 const persistConfig = {
   key: "root",
@@ -37,6 +38,7 @@ const rootReducer = combineReducers({
   sets: setsReducer,
   parts: partsReducer,
   minifigs: miniReducer,
+  fav: favReducer,
 });
 
 const configPersist = persistReducer(persistConfig, rootReducer);
