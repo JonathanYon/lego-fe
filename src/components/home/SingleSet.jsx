@@ -2,6 +2,7 @@ import { Card, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 const SingleSet = ({ data, history }) => {
+  // console.log("data", data);
   return (
     <Col
       className="mb-2"
