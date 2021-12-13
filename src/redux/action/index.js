@@ -106,3 +106,8 @@ export const getSets = (search, minYear, maxYear, minPart, maxPart) => {
     }
   };
 };
+
+export const toggleFav = (data) => ({
+  type: TOGGLE_SETS,
+  payload: data,
+});
