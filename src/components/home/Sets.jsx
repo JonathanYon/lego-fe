@@ -14,6 +14,16 @@ const Sets = () => {
 
   const dispatch = useDispatch();
   const allSets = useSelector((state) => state.sets.data);
+  // const filteredSet = allSets.filter((sets) =>
+  //   sets.name.toLowerCase().includes(search)
+  // );
+  // .filter((time) => time.year >= minYear)
+  // .filter((time) => time.year <= maxYear);
+  // .filter((time) => time.num_parts >= minParts)
+  // .filter((time) => time.num_parts <= maxParts);
+
+  console.log(allSets);
+
   useEffect(() => {
     dispatch(getSets(search, minYear, maxYear, minParts, maxParts));
   }, [search, minYear, maxYear, minParts, maxParts]);
@@ -87,13 +97,14 @@ const Sets = () => {
         </Col>
       </Row>
       <Row className="my-5" sm={2} md={4}>
-        <Col>
-          {allSets.length > 0 ? (
-            allSets.map((data) => <SingleSet key={data.set_num} data={data} />)
-          ) : (
-            <small>There are no sets in this list.</small>
-          )}
-        </Col>
+        {/* <Col className="d-flex"> */}
+        {allSets.length > 0 ? (
+          allSets.map((data) => <SingleSet key={data.set_num} data={data} />)
+        ) : (
+          // .slice(0, 10)
+          <small>There are no sets in this list.</small>
+        )}
+        {/* </Col> */}
       </Row>
     </Container>
   );
