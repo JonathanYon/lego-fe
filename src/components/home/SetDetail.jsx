@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleFav } from "../../redux/action";
 import "./home.css";
 
-const SetDetail = ({ match }) => {
+const SetDetail = ({ match, history }) => {
   const [detail, setDetail] = useState(null);
 
   const like = useSelector((state) => state.fav.liked);
@@ -14,15 +14,19 @@ const SetDetail = ({ match }) => {
   useEffect(() => {
     const getSetsDetail = async () => {
       const { id } = match.params;
+      const idArr = Array.from(id);
+      const fig = idArr[0] + idArr[1] + idArr[2];
+      const url =
+        fig === "fig"
+          ? `${process.env.REACT_APP_URL}/minifigs/${id}`
+          : `${process.env.REACT_APP_URL}/sets/${id}`;
+
       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_URL}/sets/${id}`,
-          {
-            headers: {
-              Authorization: `Key ${process.env.REACT_APP_KEY}`,
-            },
-          }
-        );
+        const response = await fetch(url, {
+          headers: {
+            Authorization: `Key ${process.env.REACT_APP_KEY}`,
+          },
+        });
         if (response.ok) {
           const res = await response.json();
           console.log("detail", res);
@@ -55,7 +59,10 @@ const SetDetail = ({ match }) => {
               />
             )}
           </div>
-          <div className="bg-success mt-2">
+          <div
+            className="bg-success mt-2"
+            onClick={() => history.push("/favourite")}
+          >
             <AiFillStar /> <strong>My Favourite Sets</strong>
           </div>
         </Col>
