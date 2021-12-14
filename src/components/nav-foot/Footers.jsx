@@ -11,9 +11,9 @@ const Footers = () => {
   return (
     <Container fluid className="bg-light">
       <Container className="">
-        <Row className="d-flex flex-column">
-          <Col className="d-flex  mt-4">
-            <div className="col-7">
+        <Row className="">
+          <Col className="d-md-flex  mt-4">
+            <div className="col-lg-7">
               <h4>Need help?</h4>
               <div>
                 <Button className="rounded-pill mr-2 bg-success">
@@ -36,9 +36,12 @@ const Footers = () => {
                 </Button>
               </div>
             </div>
-            <div className="col-5">
+            <div className="col-lg-5 col-sm-12">
               <h4>Inspiration & offer</h4>
-              <Form inline className=" d-flex search-under">
+              <Form
+                inline
+                className=" d-flex search-under flex-column flex-lg-row"
+              >
                 <FormControl
                   type="text"
                   placeholder="john@gmail.com"
@@ -52,7 +55,7 @@ const Footers = () => {
             </div>
           </Col>
         </Row>
-        <Row className="d-flex flex-column mt-2">
+        <Row className=" mt-2">
           <Col className="d-flex">
             <div className="col-12 d-flex justify-content-between">
               <div>
@@ -94,7 +97,7 @@ const Footers = () => {
             </div>
           </Col>
         </Row>
-        <Row className="d-flex flex-column mt-4">
+        <Row className=" mt-4">
           <Col className="d-flex justify-content-between">
             <div className="">
               <img src={process.env.PUBLIC_URL + "robo.png"} alt="robot" />
