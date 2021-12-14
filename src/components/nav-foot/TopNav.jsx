@@ -5,6 +5,8 @@ import {
   FormControl,
   Form,
   Button,
+  Modal,
+  ListGroup,
 } from "react-bootstrap";
 import { FaCube, FaSearch, FaBars } from "react-icons/fa";
 import { BsPersonFill } from "react-icons/bs";
@@ -12,10 +14,43 @@ import { SiBuildkite } from "react-icons/si";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { withRouter } from "react-router-dom";
 import "./nav-foot.css";
+import { useState } from "react";
 
 const TopNav = (props) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
+      <div className="modal-container " onClick={handleClose}>
+        <Modal show={show} onHide={handleClose} animation={false}>
+          <Modal.Body>
+            <ListGroup variant="flush">
+              <ListGroup.Item action variant="light">
+                <div className="d-flex justify-content-between">
+                  <h2>Hello 👋</h2>
+                  <h5 onClick={() => props.history.push("/login")}>Login</h5>
+                </div>
+              </ListGroup.Item>
+              <ListGroup.Item
+                action
+                variant="warning"
+                className="mb-2"
+                onClick={() => props.history.push("/sets")}
+              >
+                Sets
+              </ListGroup.Item>
+              <ListGroup.Item action variant="warning" className="mb-2">
+                Minifigs
+              </ListGroup.Item>
+              <ListGroup.Item action variant="warning">
+                Parts
+              </ListGroup.Item>
+            </ListGroup>
+          </Modal.Body>
+        </Modal>
+      </div>
       <Navbar bg="light">
         <Container className="bg-dark">
           <Navbar.Brand href="#home">
@@ -126,7 +161,10 @@ const TopNav = (props) => {
               <FaSearch className="search" />
               <small className="mr-3">Search</small>
             </div>
-            <FaBars className="mt-2 mr-1 bar d-lg-none d-sm-block text-white" />
+            <FaBars
+              className="mt-2 mr-1 bar d-lg-none d-sm-block text-white"
+              onClick={handleShow}
+            />
           </div>
         </Container>
       </Navbar>
