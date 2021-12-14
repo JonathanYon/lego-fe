@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, ListGroup, Container, Row, Col, Spinner } from "react-bootstrap";
 // import { FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getSets } from "../../redux/action";
@@ -14,6 +14,8 @@ const Sets = () => {
 
   const dispatch = useDispatch();
   const allSets = useSelector((state) => state.sets.data);
+  const errors = useSelector((state) => state.sets.error);
+  const loading = useSelector((state) => state.sets.loading);
   // const filteredSet = allSets.filter((sets) =>
   //   sets.name.toLowerCase().includes(search)
   // );
@@ -96,6 +98,20 @@ const Sets = () => {
           </Form>
         </Col>
       </Row>
+      {errors && (
+        <ListGroup className="mt-3 mb-5 mx-5">
+          <ListGroup.Item variant="danger">
+            <strong>
+              Something has gone wrong please come back again later
+            </strong>
+          </ListGroup.Item>
+        </ListGroup>
+      )}
+      {loading && (
+        <div className="mx-auto my-5">
+          <Spinner animation="grow" className="" />
+        </div>
+      )}
       <Row className="my-5" sm={2} md={4}>
         {/* <Col className="d-flex"> */}
         {allSets.length > 0 ? (
