@@ -17,7 +17,7 @@ const MiniFigs = () => {
 
   return (
     <Container>
-      <Row sm={2} md={4}>
+      <Row sm={2} md={4} className="mx-auto">
         {errors && (
           <ListGroup className="mt-3 mb-5 mx-auto">
             <ListGroup.Item variant="danger">

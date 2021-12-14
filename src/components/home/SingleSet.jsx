@@ -5,10 +5,10 @@ const SingleSet = ({ data, history }) => {
   // console.log("data", data);
   return (
     <Col
-      className="mb-2"
+      className="mb-2 "
       onClick={() => history.push(`/detail/${data.set_num}`)}
     >
-      <Card style={{ height: "18rem", width: "15rem" }} className="">
+      <Card style={{ height: "18rem", width: "15rem" }} className="mx-auto">
         <Card.Img
           variant="top"
           src={data.set_img_url}
