@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Container, Row, ListGroup } from "react-bootstrap";
+import { Col, Container, Row, ListGroup, Spinner } from "react-bootstrap";
 import { AiOutlineHeart, AiFillHeart, AiFillStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFav } from "../../redux/action";
@@ -7,6 +7,8 @@ import "./home.css";
 
 const SetDetail = ({ match, history }) => {
   const [detail, setDetail] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(false);
 
   const like = useSelector((state) => state.fav.liked);
   const dispatch = useDispatch();
@@ -22,19 +24,24 @@ const SetDetail = ({ match, history }) => {
           : `${process.env.REACT_APP_URL}/sets/${id}`;
 
       try {
+        setLoading(true);
         const response = await fetch(url, {
           headers: {
             Authorization: `Key ${process.env.REACT_APP_KEY}`,
           },
         });
         if (response.ok) {
+          setLoading(false);
           const res = await response.json();
           console.log("detail", res);
           setDetail(res);
         } else {
-          alert("something wrong");
+          setLoading(false);
+          setErrors(true);
         }
       } catch (error) {
+        setLoading(false);
+        setErrors(true);
         console.log(error);
       }
     };
@@ -44,7 +51,17 @@ const SetDetail = ({ match, history }) => {
   return (
     <Container className="my-5">
       <Row>
+        {errors && (
+          <ListGroup className="mt-3 mb-5 mx-5">
+            <ListGroup.Item variant="danger">
+              <strong>
+                Something has gone wrong please come back again later
+              </strong>
+            </ListGroup.Item>
+          </ListGroup>
+        )}
         <Col sm={8} className="d-flex flex-column">
+          {loading && <Spinner animation="grow" className="mx-auto mb-5" />}
           <img src={detail?.set_img_url} alt="" />
           <div className="bg-warning">
             {!like.includes(detail) ? (
