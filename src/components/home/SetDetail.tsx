@@ -2,26 +2,44 @@ import { useEffect, useState } from "react";
 import { Col, Container, Row, ListGroup, Spinner } from "react-bootstrap";
 import { AiOutlineHeart, AiFillHeart, AiFillStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
+import { RouteComponentProps, useParams } from "react-router-dom";
+import moment from "moment";
 import { toggleFav } from "../../redux/action";
+import {
+  MinifigDetails,
+  ReduxStore,
+  SetsDetails,
+} from "../../types/reduxStore";
 import "./home.css";
 
-const SetDetail = ({ match, history }) => {
-  const [detail, setDetail] = useState(null);
+export interface IParams {
+  id: string;
+}
+
+const SetDetail = ({ match, history }: RouteComponentProps) => {
+  const [detail, setDetail] = useState<SetsDetails | MinifigDetails>(
+    null as any
+  );
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(false);
 
-  const like = useSelector((state) => state.fav.liked);
+  const like = useSelector((state: ReduxStore) => state.fav.liked);
   const dispatch = useDispatch();
+  const id = useParams<{ id: string }>();
+  const idArr = Array.from(id.id);
+  const fig = idArr[0] + idArr[1] + idArr[2];
+  console.log("id", id.id);
+  console.log("idArr--", idArr);
+  console.log("fig", fig);
 
   useEffect(() => {
     const getSetsDetail = async () => {
-      const { id } = match.params;
-      const idArr = Array.from(id);
-      const fig = idArr[0] + idArr[1] + idArr[2];
+      // const {id} = match.params;
+
       const url =
         fig === "fig"
-          ? `${process.env.REACT_APP_URL}/minifigs/${id}`
-          : `${process.env.REACT_APP_URL}/sets/${id}`;
+          ? `${process.env.REACT_APP_URL}/minifigs/${id.id}`
+          : `${process.env.REACT_APP_URL}/sets/${id.id}`;
 
       try {
         setLoading(true);
@@ -92,8 +110,10 @@ const SetDetail = ({ match, history }) => {
               <span>{detail?.name}</span>
             </ListGroup.Item>
             <ListGroup.Item className="d-flex justify-content-between">
-              <span>Released</span>
-              <span>{detail?.year}</span>
+              <span>Updated</span>
+              <span>
+                {moment(detail?.last_modified_dt).format("YYYY/MM/DD, h:mm a")}
+              </span>
             </ListGroup.Item>
             <ListGroup.Item className="d-flex justify-content-between">
               <span>Inventory</span>

@@ -39,7 +39,7 @@ const Footers = () => {
             <div className="col-lg-5 col-sm-12">
               <h4>Inspiration & offer</h4>
               <Form
-                inline
+                d-flex
                 className=" d-flex search-under flex-column flex-lg-row"
               >
                 <FormControl

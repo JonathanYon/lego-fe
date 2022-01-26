@@ -12,11 +12,11 @@ import { FaCube, FaSearch, FaBars } from "react-icons/fa";
 import { BsPersonFill } from "react-icons/bs";
 import { SiBuildkite } from "react-icons/si";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { withRouter } from "react-router-dom";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 import "./nav-foot.css";
 import { useState } from "react";
 
-const TopNav = (props) => {
+const TopNav = (props: RouteComponentProps) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -150,7 +150,7 @@ const TopNav = (props) => {
               </div>
             </Nav.Link>
           </Nav>
-          <Form inline className="mr-5 d-lg-flex d-none">
+          <Form d-flex className="mr-5 d-lg-flex d-none">
             <FormControl type="text" placeholder="Search" className="" />
             <Button variant="success">
               <FaSearch />
@@ -168,7 +168,7 @@ const TopNav = (props) => {
           </div>
         </Container>
       </Navbar>
-      <Form inline className="d-lg-none d-flex search-under">
+      <Form d-flex className="d-lg-none d-flex search-under">
         <FormControl type="text" placeholder="Search" className="" />
         <Button variant="success">
           <FaSearch />

@@ -3,12 +3,13 @@ import { Container, Row, ListGroup, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getMiniFigs } from "../../redux/action";
+import { ReduxStore } from "../../types/reduxStore";
 import SingleSet from "./SingleSet";
 
 const MiniFigs = () => {
-  const minifigs = useSelector((state) => state.minifigs.data);
-  const errors = useSelector((state) => state.minifigs.error);
-  const loading = useSelector((state) => state.minifigs.loading);
+  const minifigs = useSelector((state: ReduxStore) => state.minifigs.data);
+  const errors = useSelector((state: ReduxStore) => state.minifigs.error);
+  const loading = useSelector((state: ReduxStore) => state.minifigs.loading);
   const dispatch = useDispatch();
 
   useEffect(() => {

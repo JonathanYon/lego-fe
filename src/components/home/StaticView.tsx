@@ -1,10 +1,10 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FaPlus, FaEquals } from "react-icons/fa";
 import { AiFillBuild } from "react-icons/ai";
-import { withRouter } from "react-router-dom";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 import "./home.css";
 
-const StaticView = (props) => {
+const StaticView = (props: RouteComponentProps) => {
   return (
     <Container className="my-4">
       <Row>

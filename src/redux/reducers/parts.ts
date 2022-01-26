@@ -1,7 +1,8 @@
+import { AnyAction } from "redux";
 import { PARTS, ERROR_PARTS, LOADING_PARTS } from "../action";
 import { initialState } from "../store";
 
-export const partsReducer = (state = initialState.parts, action) => {
+export const partsReducer = (state = initialState.parts, action: AnyAction) => {
   switch (action.type) {
     case PARTS:
       return {

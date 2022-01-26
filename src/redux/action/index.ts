@@ -1,3 +1,10 @@
+import { Dispatch } from "redux";
+import {
+  MinifigDetails,
+  ReduxStore,
+  SetsDetails,
+} from "../../types/reduxStore";
+
 export const SETS = "SETS";
 export const ERROR_SETS = "ERROR_SETS";
 export const LOADING_SETS = "LOADING_SETS";
@@ -10,7 +17,7 @@ export const LOADING_PARTS = "LOADING_PARTS";
 export const TOGGLE_SETS = "TOGGLE_SETS";
 
 export const getMiniFigs = () => {
-  return async (dispatch) => {
+  return async (dispatch: Dispatch, getState: () => ReduxStore) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_URL}/minifigs`, {
         headers: {
@@ -55,8 +62,14 @@ export const getMiniFigs = () => {
 // Sets
 
 // export const getSets = () => {
-export const getSets = (search, minYear, maxYear, minPart, maxPart) => {
-  return async (dispatch) => {
+export const getSets = (
+  search: string,
+  minYear: string,
+  maxYear: string,
+  minPart: string,
+  maxPart: string
+) => {
+  return async (dispatch: Dispatch) => {
     try {
       const response = await fetch(
         `${process.env.REACT_APP_URL}/sets?page=2${
@@ -107,7 +120,7 @@ export const getSets = (search, minYear, maxYear, minPart, maxPart) => {
   };
 };
 
-export const toggleFav = (data) => ({
+export const toggleFav = (data: SetsDetails | MinifigDetails) => ({
   type: TOGGLE_SETS,
   payload: data,
 });

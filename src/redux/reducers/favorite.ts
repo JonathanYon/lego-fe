@@ -1,7 +1,8 @@
 import { initialState } from "../store";
 import { TOGGLE_SETS } from "../action";
+import { AnyAction } from "redux";
 
-export const favReducer = (state = initialState.fav, action) => {
+export const favReducer = (state = initialState.fav, action: AnyAction) => {
   switch (action.type) {
     case TOGGLE_SETS:
       return {

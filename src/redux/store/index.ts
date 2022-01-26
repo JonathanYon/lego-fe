@@ -6,6 +6,7 @@ import { setsReducer } from "../reducers/sets";
 import { miniReducer } from "../reducers/mini";
 import { partsReducer } from "../reducers/parts";
 import { favReducer } from "../reducers/favorite";
+import { ReduxStore } from "../../types/reduxStore";
 
 const persistConfig = {
   key: "root",
@@ -13,7 +14,7 @@ const persistConfig = {
   whitelist: ["fav"], // only navigation will be persisted
 };
 
-export const initialState = {
+export const initialState: ReduxStore = {
   sets: {
     data: [],
     error: false,
@@ -47,7 +48,9 @@ export const configStore = createStore(
   configPersist,
   initialState,
   process.env.NODE_ENV === "development"
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(applyMiddleware(thunk))
+    ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(
+        applyMiddleware(thunk)
+      )
     : compose(applyMiddleware(thunk))
 );
 export const persistor = persistStore(configStore);

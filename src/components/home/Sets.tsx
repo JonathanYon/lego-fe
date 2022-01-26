@@ -3,6 +3,7 @@ import { Form, ListGroup, Container, Row, Col, Spinner } from "react-bootstrap";
 // import { FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getSets } from "../../redux/action";
+import { ReduxStore } from "../../types/reduxStore";
 import SingleSet from "./SingleSet";
 
 const Sets = () => {
@@ -13,9 +14,9 @@ const Sets = () => {
   const [maxParts, setMaxParts] = useState("");
 
   const dispatch = useDispatch();
-  const allSets = useSelector((state) => state.sets.data);
-  const errors = useSelector((state) => state.sets.error);
-  const loading = useSelector((state) => state.sets.loading);
+  const allSets = useSelector((state: ReduxStore) => state.sets.data);
+  const errors = useSelector((state: ReduxStore) => state.sets.error);
+  const loading = useSelector((state: ReduxStore) => state.sets.loading);
   // const filteredSet = allSets.filter((sets) =>
   //   sets.name.toLowerCase().includes(search)
   // );

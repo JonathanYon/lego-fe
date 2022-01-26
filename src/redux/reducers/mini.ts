@@ -1,19 +1,23 @@
-import { SETS, ERROR_SETS, LOADING_SETS } from "../action";
+import { AnyAction } from "redux";
+import { MINI, ERROR_MINI, LOADING_MINI } from "../action";
 import { initialState } from "../store";
 
-export const setsReducer = (state = initialState.sets, action) => {
+export const miniReducer = (
+  state = initialState.minifigs,
+  action: AnyAction
+) => {
   switch (action.type) {
-    case SETS:
+    case MINI:
       return {
         ...state,
         data: action.payload,
       };
-    case ERROR_SETS:
+    case ERROR_MINI:
       return {
         ...state,
         error: action.payload,
       };
-    case LOADING_SETS:
+    case LOADING_MINI:
       return {
         ...state,
         loading: action.payload,
